@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Покупка игры: {{ game.title }}</h1>
+    <p>Цена: {{ game.cost }}</p>
+    <p>Ваш баланс: {{ buyer.balance }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Купить</button>
+    </form>
+</body>
+</html>

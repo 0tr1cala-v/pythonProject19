@@ -1,20 +1,11 @@
 >>> from task1.models import Buyer
->>> Buyer.objects.create(name='Connor', balance=10, age=32)
-<Buyer: Connor>
->>> Buyer.objects.create(name='Max', balance=5, age=17)
-<Buyer: Max>
->>> Buyer.objects.create(name='Ronnie', balance=9, age=72)
-<Buyer: Ronnie>
->>> first_buyer=Buyer.objects.get(id=1)
->>> second_buyer=Buyer.objects.get(id=2)
->>> third_buyer=Buyer.objects.get(id=3)
 >>> from task1.models import Game
->>> Game.objects.create(title='Fortnite', cost=4, size=2, description='', age_limited=True)
-<Game: Fortnite>
->>> Game.objects.create(title='Call of Duty', cost=3, size=3, description='masacre', age_limited=True)
-<Game: Call of Duty>
->>> Game.objects.create(title='Cars', cost=1, size=2, description='Ka-chau!')
-<Game: Cars>
->>> Game.objects.get(id=7).buyers.set((first_buyer, second_buyer))
->>> Game.objects.get(id=8).buyers.set((first_buyer, third_buyer))
->>> Game.objects.get(id=9).buyers.set((second_buyer, third_buyer))
+>>> first_buyer = Buyer.objects.create(name='Connor', balance=10, age=32)
+>>> second_buyer = Buyer.objects.create(name='Max', balance=5, age=17)
+>>> third_buyer = Buyer.objects.create(name='Ronnie', balance=9, age=72)
+>>> first_game = Game.objects.create(title='Fortnite', cost=4, size=2, description='', age_limited=True)
+>>> second_game = Game.objects.create(title='Call of Duty', cost=3, size=3, description='masacre', age_limited=True)
+>>> third_game = Game.objects.create(title='Cars', cost=1, size=2, description='Ka-chau!')
+>>> first_game.buyers.set((first_buyer, second_buyer))
+>>> second_game.buyers.set((second_buyer, third_buyer))
+>>> third_game.buyers.set((second_buyer, third_buyer))

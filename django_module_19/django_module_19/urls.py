@@ -25,4 +25,5 @@ urlpatterns = [
     path('platform/cart/', cart),
     path('', sign_up_by_html),
     path("django_forms/", sign_up_by_django),
+    path('admin/', admin.site.urls),
 ]

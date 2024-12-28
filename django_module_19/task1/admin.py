@@ -1,9 +1,10 @@
 from django.contrib import admin
-from .models import Buyer, Game
+from .models import Buyer, Game, News
 # Register your models here.
 
 #admin.site.register(Buyer)
 #admin.site.register(Game)
+admin.site.register(News)
 
 
 @admin.register(Game)

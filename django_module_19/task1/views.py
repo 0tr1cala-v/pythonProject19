@@ -1,10 +1,19 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
+from django.core.paginator import Paginator
 from .models import *
 from .forms import UserRegister
 
 
 # Create your views here.
+def news(request):
+    new = News.objects.all().order_by('-date')
+    paginator = Paginator(new, 3)
+    page_number = request.GET.get('page')
+    news = paginator.get_page(page_number)
+    return render(request, 'paginator/news.html', {'news': news})
+
+
 def platform(request):
     return render(request, 'fourth_task/platform.html')
 

@@ -7,11 +7,11 @@ from .forms import UserRegister
 
 # Create your views here.
 def news(request):
-    new = News.objects.all().order_by('-date')
-    paginator = Paginator(new, 3)
+    news_list = News.objects.all().order_by('-date')
+    paginator = Paginator(news_list, 3)
     page_number = request.GET.get('page')
-    news = paginator.get_page(page_number)
-    return render(request, 'paginator/news.html', {'news': news})
+    news_page = paginator.get_page(page_number)
+    return render(request, 'paginator/news.html', {'news': news_page})
 
 
 def platform(request):

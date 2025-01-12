@@ -11,7 +11,7 @@ def news(request):
     paginator = Paginator(news_list, 3)
     page_number = request.GET.get('page')
     news_page = paginator.get_page(page_number)
-    return render(request, 'paginator/news.html', {'news': news_page})
+    return render(request, 'pagination/news.html', {'news': news_page})
 
 
 def platform(request):
